@@ -91,3 +91,46 @@
 - **Status Code Validation**: Confirms that the API responded successfully with a status code of 200.
 - **Type Validation**: Ensures that the returned data format is a list.
 - **Content Validation**: Verifies that the list is not empty, indicating that random poems were successfully retrieved.
+
+
+
+# How to Use This Test Repository
+
+### Installation
+
+1. **Clone the Repository:**
+   Open your terminal and run the following command to clone the repository to your local machine:
+   
+   ```bash
+   git clone https://github.com/Anjalipanwar/poetrydb_api_tests.git
+   cd poetrydb_api_tests
+
+   ```
+
+2. **Install Dependencies:** Ensure you have Python installed (preferably version 3.6 or higher).
+   Then, install the required packages using pip:
+   
+   ```bash
+    pytest tests/test_by_author.py
+    
+    ```
+
+
+### Running Tests
+    **Execute:** 
+
+    ```bash
+    pytest tests/test_by_author.py
+    
+    ```
+
+# Code Style Checks with Flake8
+
+1. **Run Flake8:** Flake8 is a tool for checking the style guide enforcement of your Python code. 
+To check your code for style issues, run:
+
+    ```bash
+    flake8 .
+    
+    ```
+
