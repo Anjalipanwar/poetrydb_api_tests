@@ -6,7 +6,7 @@ BASE_URL = "https://poetrydb.org"
 
 
 # Load expected outputs from JSON file
-with open('tests/linecount_responses.json') as f:
+with open('data/linecount_responses.json') as f:
     json_data = json.load(f)
 
 @pytest.mark.parametrize("endpoint, expected_linecount", [
@@ -52,7 +52,7 @@ def test_linecount_api(endpoint, expected_linecount):
         )
 
 
-with open("tests/expected_titles.json") as f:
+with open("data/expected_titles.json") as f:
     expected_titles_output = json.load(f)
 
 def test_get_poem_titles_by_linecount():
