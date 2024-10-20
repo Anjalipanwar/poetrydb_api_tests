@@ -111,16 +111,31 @@
    Then, install the required packages using pip:
    
    ```bash
-    pytest tests/test_by_author.py
+    pip install -r requirements.txt
     
     ```
 
 
-### Running Tests
-    **Execute:** 
+### Running Tests: 
+
+1. Run Tests with pytest: Execute the following command to run all tests:
+
+    ```bash
+    pytest tests/
+    
+    ```
+
+2. Execute the following command to run a specific testfile:
 
     ```bash
     pytest tests/test_by_author.py
+    
+    ```
+
+3. Execute the following command to run a specific testcase:
+
+    ```bash
+    pytest tests/test_by_linecount.py -k test_get_poem_titles_by_linecount
     
     ```
 
