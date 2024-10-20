@@ -5,18 +5,17 @@ import json
 BASE_URL = "https://poetrydb.org"
 
 
-# Load expected outputs from JSON file
-with open('data/linecount_responses.json') as f:
-    json_data = json.load(f)
 
 @pytest.mark.parametrize("endpoint, expected_linecount", [
     ("/linecount/3", 3),
     ("/linecount/51", 51),
     ("/linecount/999", 999),
 ])
-def test_linecount_api(endpoint, expected_linecount):
+def test_linecount_api(endpoint, expected_linecount, load_json):
     """Test linecount API for verifying titles along with expected linecounts."""
-    
+    # Load the json_data from the specified file
+    json_data = load_json('data/linecount_responses.json')
+
     response = requests.get(f"{BASE_URL}{endpoint}")
     assert response.status_code in [200, 404], f"Unexpected status code: {response.status_code}"
 
@@ -52,11 +51,10 @@ def test_linecount_api(endpoint, expected_linecount):
         )
 
 
-with open("data/expected_titles.json") as f:
-    expected_titles_output = json.load(f)
-
-def test_get_poem_titles_by_linecount():
+def test_get_poem_titles_by_linecount(load_json):
     """Test fetching titles of poems with an exact linecount of 3."""
+    # Load the expected titles from the specified file
+    expected_titles_output = load_json("data/expected_titles.json")
     response = requests.get(f"{BASE_URL}/linecount/3/title")
     
     assert response.status_code == 200, "Expected status code 200"
