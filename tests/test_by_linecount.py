@@ -1,6 +1,5 @@
 import requests
 import pytest
-import json
 
 from config import BASE_URL
 
