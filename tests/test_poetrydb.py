@@ -1,7 +1,7 @@
 import requests
 import pytest
 
-BASE_URL = "https://poetrydb.org"
+from config import BASE_URL
 
 # Authors expected to be found
 found_authors = ["Emily Dickinson", "William Wordsworth"]

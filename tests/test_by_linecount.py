@@ -2,7 +2,7 @@ import requests
 import pytest
 import json
 
-BASE_URL = "https://poetrydb.org"
+from config import BASE_URL
 
 
 
