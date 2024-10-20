@@ -1,8 +1,6 @@
 import requests
 import pytest
-
 from config import BASE_URL
-
 
 
 @pytest.mark.parametrize("endpoint, expected_linecount", [
@@ -20,9 +18,8 @@ def test_linecount_api(endpoint, expected_linecount, load_json):
 
     # Parse the actual response data
     actual_data = response.json()
-    # Found expected_linecount of tpye list in the response
+    # Found expected_linecount of type list in the response
     if isinstance(actual_data, list):
-        
         # Generate the key for accessing the expected data in the json_data
         expected_key = f"linecount_{expected_linecount}"
 
@@ -36,7 +33,6 @@ def test_linecount_api(endpoint, expected_linecount, load_json):
             item['title'] for item in actual_data
             if int(item['linecount']) == expected_linecount  # Ensure the linecount matches
         ]
-        
         # Assert that all expected titles are present in the actual titles
         for expected_title in expected_titles:
             assert expected_title in actual_titles, (
@@ -55,14 +51,14 @@ def test_get_poem_titles_by_linecount(load_json):
     # Load the expected titles from the specified file
     expected_titles_output = load_json("data/expected_titles.json")
     response = requests.get(f"{BASE_URL}/linecount/3/title")
-    
     assert response.status_code == 200, "Expected status code 200"
-    
     actual_data = response.json()
-
     # Extract only the titles of poems from the actual data
-    actual_titles = [{"title": poem["title"]} for poem in actual_data if poem["title"] in [item["title"] for item in expected_titles_output]]
-
+    actual_titles = [
+        {"title": poem["title"]}
+        for poem in actual_data
+        if poem["title"] in [item["title"] for item in expected_titles_output]
+    ]
     # Check that all items in the filtered actual data contain only the 'title' field
     for item in actual_titles:
         assert "title" in item, "Each item should have a 'title' field"
