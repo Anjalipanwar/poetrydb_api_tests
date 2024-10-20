@@ -149,3 +149,28 @@ To check your code for style issues, run:
     
     ```
 
+# Test Result
+
+
+```bash
+anjalipanwar@Anjalis-MacBook-Pro poetrydb_api_tests % pytest tests/                                                        
+======================================================================= test session starts ========================================================================
+platform darwin -- Python 3.10.3, pytest-7.2.0, pluggy-1.0.0
+rootdir: /Users/anjalipanwar/Documents/poetrydb_api_tests, configfile: pytest.ini
+plugins: rerunfailures-10.3, cases-3.6.13, html-3.2.0, mock-3.10.0, requests-mock-1.10.0, allure-pytest-2.12.0, Faker-15.3.3, metadata-2.0.4
+collected 11 items                                                                                                                                                 
+
+tests/test_by_author.py::test_get_poems_by_author[Emily Dickinson] PASSED                                                                                    [  9%]
+tests/test_by_author.py::test_get_poems_by_author[William Wordsworth] PASSED                                                                                 [ 18%]
+tests/test_by_author.py::test_get_poems_by_author[Robert Frost] PASSED                                                                                       [ 27%]
+tests/test_by_author.py::test_get_poems_by_author[Unknown Author] PASSED                                                                                     [ 36%]
+tests/test_by_linecount.py::test_linecount_api[/linecount/3-3] PASSED                                                                                        [ 45%]
+tests/test_by_linecount.py::test_linecount_api[/linecount/51-51] PASSED                                                                                      [ 54%]
+tests/test_by_linecount.py::test_linecount_api[/linecount/999-999] PASSED                                                                                    [ 63%]
+tests/test_by_linecount.py::test_get_poem_titles_by_linecount PASSED                                                                                         [ 72%]
+tests/test_by_poem.py::test_get_poems_by_title[A Baby's Death] PASSED                                                                                        [ 81%]
+tests/test_by_poem.py::test_get_poems_by_title[A Ballad Of The Trees And The Master] PASSED                                                                  [ 90%]
+tests/test_by_poem.py::test_get_random_poems PASSED                                                                                                          [100%]
+
+======================================================================== 11 passed in 9.60s ========================================================================
+``` 
